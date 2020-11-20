@@ -103,7 +103,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Trello</h1>
+        <h1 className={styles.title}>Trello</h1>
         <div className={styles.container}>
           { this.state.lists.map(list => 
             <List 

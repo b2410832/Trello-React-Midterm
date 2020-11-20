@@ -1,15 +1,20 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 5px;
 }
 
 .title {
-
+    font-size: 24px;
+    font-weight: 600;
+    color: #3a3a3a;
 }
 
 .close {
     cursor: pointer;
     margin-left: 10px;
+    font-size: 18px;
 }
 
 .btns {
@@ -17,9 +22,13 @@
 }
 
 .input {
-    /* width: 110px; */
+    width: 130px;
 }
 
 .btn {
     margin-left: 5px;
+}
+
+.edit {
+    font-size: large;
 }

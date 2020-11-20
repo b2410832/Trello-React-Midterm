@@ -2,11 +2,14 @@
     border: 1px solid black;
     padding: 8px;
     margin: 8px;
-    width: 153px;
+    width: 200px;
+    background-color: #f8f8f8;
+    border: none;
 }
 
 .input {
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .btn {
