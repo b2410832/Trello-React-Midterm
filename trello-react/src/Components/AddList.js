@@ -8,7 +8,7 @@ function AddList({toggleAddingList, isAddingList, handleInputChange, listInput, 
                 <button className={styles.btn} onClick={addList}>
                     Add List
                 </button>
-                <button className={styles.btn} onClick={toggleAddingList}>X</button>
+                <button className={styles.btn} onClick={toggleAddingList}>Cancel</button>
             </div>
         )
     }

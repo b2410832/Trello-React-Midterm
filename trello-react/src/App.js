@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { nanoid } from 'nanoid';
-import { DragDropContext } from 'react-beautiful-dnd';
 
 import styles from './App.module.css';
 import AddList from './Components/AddList';
@@ -38,6 +37,8 @@ class App extends Component {
       {
         id: nanoid(),
         name: listInput.trim(),
+        isEditing: false,
+        pendingName: "",
       }
     ]
     this.setState({
@@ -46,17 +47,82 @@ class App extends Component {
     });
   }
 
+  removeList = (index) => {
+    this.setState({
+        lists: this.state.lists.filter((list) => list.id !== index)
+    })
+  }
+
+  toggleEditing = (index) => {
+    this.setState({
+      lists: this.state.lists.map(list => {
+        if(list.id === index) {
+          return {
+            ...list,
+            isEditing: !list.isEditing,
+            pendingName: "",
+          }
+        }
+        return list
+      })
+    })
+  }
+
+  // 編輯List名稱
+  handleListInputChange = (event, index) => {
+    this.setState({
+      lists: this.state.lists.map(list => {
+        if(list.id === index) {
+          return {
+            ...list,
+            pendingName: event.target.value,
+          }
+        }
+        return list
+      })
+    })
+  }
+
+  // 儲存List新名稱
+  updateListName = (index) => {
+    this.setState({
+      lists: this.state.lists.map(list => {
+        if(list.id === index) {
+          return {
+            ...list,
+            name: list.pendingName,
+            isEditing: !list.isEditing,
+          }
+        }
+        return list
+      })
+    })
+  }
+
+
   render() {
     return (
-      <div className={styles.container}>
-        {this.state.lists.map(list => <List key={list.id} list={list}/>)}
-        <AddList 
-          toggleAddingList={this.toggleAddingList}
-          isAddingList={this.state.isAddingList}
-          listInput={this.state.listInput}
-          handleInputChange={this.handleInputChange}
-          addList={this.addList}
-        />
+      <div>
+        <h1>Trello</h1>
+        <div className={styles.container}>
+          { this.state.lists.map(list => 
+            <List 
+              key={list.id} 
+              list={list} 
+              removeList={this.removeList} 
+              toggleEditing={this.toggleEditing}
+              handleListInputChange={this.handleListInputChange}
+              updateListName={this.updateListName}
+            />)
+          }
+          <AddList 
+            toggleAddingList={this.toggleAddingList}
+            isAddingList={this.state.isAddingList}
+            listInput={this.state.listInput}
+            handleInputChange={this.handleInputChange}
+            addList={this.addList}
+          />
+        </div>
       </div>
     );
   }

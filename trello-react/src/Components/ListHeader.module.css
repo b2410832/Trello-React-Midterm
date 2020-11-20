@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+
+}
+
+.close {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btns {
+    display: flex;
+}
+
+.input {
+    /* width: 110px; */
+}
+
+.btn {
+    margin-left: 5px;
+}

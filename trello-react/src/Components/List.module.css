@@ -1,7 +1,15 @@
 .listContainer {
     padding: 8px;
     margin: 8px;
-    width: 153px;
+    width: 300px;
     overflow-wrap: break-word;
     border: 1px solid black;
 }
+
+.cardContainer {
+    padding: 8px; 
+    margin: 8px 0px; 
+    overflow-wrap: break-word; 
+    border: 1px solid black;
+}
+

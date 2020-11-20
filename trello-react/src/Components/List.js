@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { nanoid } from 'nanoid';
-import { Droppable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import styles from './List.module.css';
 import AddCard from './AddCard';
-import Card from './Card';
+import ListHeader from './ListHeader';
 
 class List extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class List extends Component {
         });
     }
 
-    AddCard = () => {
+    addCard = () => {
         const { cards, cardInput } = this.state;
         if(cardInput.trim().length === 0) {
             return;
@@ -45,23 +45,58 @@ class List extends Component {
             cards: newCards
         });
     }
+    
+    // 更新拖拉卡片的新index到react state
+    handleOnDragEnd = (result) => {
+        // 若拖拉到DragDropContext外面則return
+        if(!result.destination) return 
+        const cardItems = Array.from(this.state.cards);
+        // 從原來位置移除
+        const [reorderedCardItems] = cardItems.splice(result.source.index, 1);
+        // 插到新的位置
+        cardItems.splice(result.destination.index, 0, reorderedCardItems);
+        // 更新到state
+        this.setState({
+            cards: cardItems
+        });
+    }
 
     render() {
-        // const { cards } = this.state;
-        // const cardItems = cards.map(card => <Card key={card.id} card={card}/>)
-
         return (
-            <div className={styles.listContainer}>
-                <div>{this.props.list.name}</div>
-                { this.state.cards.map(card => <Card key={card.id} card={card}/>) }
-                <AddCard 
-                    isAddingCard={this.state.isAddingCard}
-                    toggleAddingCard={this.toggleAddingCard}
-                    handleInputChange={this.handleInputChange}
-                    cardInput={this.state.cardInput}
-                    AddCard={this.AddCard}
-                />
-            </div>
+            <DragDropContext onDragEnd={this.handleOnDragEnd}>
+                <Droppable droppableId={this.props.list.id}>
+                    {(provided) => (
+                        <div className={styles.listContainer} {...provided.droppableProps} ref={provided.innerRef}>
+                            <ListHeader 
+                                list={this.props.list}
+                                toggleEditing={this.props.toggleEditing}
+                                removeList={this.props.removeList}
+                                handleListInputChange={this.props.handleListInputChange}
+                                updateListName={this.props.updateListName}
+                            />
+                            { this.state.cards.map((card, index) => {
+                                return (
+                                    <Draggable key={card.id} draggableId={card.id} index={index}>
+                                        {(provided) => (
+                                            <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                                                <div className={styles.cardContainer}>{card.name}</div>
+                                            </div>
+                                        )}
+                                    </Draggable>
+                                )
+                            })}
+                            {provided.placeholder}
+                            <AddCard 
+                                isAddingCard={this.state.isAddingCard}
+                                toggleAddingCard={this.toggleAddingCard}
+                                handleInputChange={this.handleInputChange}
+                                cardInput={this.state.cardInput}
+                                addCard={this.addCard}
+                            />
+                        </div>
+                    )}
+                </Droppable>
+            </DragDropContext>
         )
     }
   }
