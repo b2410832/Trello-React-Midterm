@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Trello-React-Midterm/static/css/main.ba5af549.chunk.css",
-    "main.js": "/Trello-React-Midterm/static/js/main.501b184d.chunk.js",
-    "main.js.map": "/Trello-React-Midterm/static/js/main.501b184d.chunk.js.map",
-    "runtime-main.js": "/Trello-React-Midterm/static/js/runtime-main.48839fe6.js",
-    "runtime-main.js.map": "/Trello-React-Midterm/static/js/runtime-main.48839fe6.js.map",
-    "static/js/2.0cf1e220.chunk.js": "/Trello-React-Midterm/static/js/2.0cf1e220.chunk.js",
-    "static/js/2.0cf1e220.chunk.js.map": "/Trello-React-Midterm/static/js/2.0cf1e220.chunk.js.map",
-    "static/js/3.d7e40187.chunk.js": "/Trello-React-Midterm/static/js/3.d7e40187.chunk.js",
-    "static/js/3.d7e40187.chunk.js.map": "/Trello-React-Midterm/static/js/3.d7e40187.chunk.js.map",
+    "main.css": "/Trello-React-Midterm/static/css/main.c4527901.chunk.css",
+    "main.js": "/Trello-React-Midterm/static/js/main.0e91cd75.chunk.js",
+    "main.js.map": "/Trello-React-Midterm/static/js/main.0e91cd75.chunk.js.map",
+    "runtime-main.js": "/Trello-React-Midterm/static/js/runtime-main.7d838267.js",
+    "runtime-main.js.map": "/Trello-React-Midterm/static/js/runtime-main.7d838267.js.map",
+    "static/js/2.87f6c479.chunk.js": "/Trello-React-Midterm/static/js/2.87f6c479.chunk.js",
+    "static/js/2.87f6c479.chunk.js.map": "/Trello-React-Midterm/static/js/2.87f6c479.chunk.js.map",
+    "static/js/3.c33f3125.chunk.js": "/Trello-React-Midterm/static/js/3.c33f3125.chunk.js",
+    "static/js/3.c33f3125.chunk.js.map": "/Trello-React-Midterm/static/js/3.c33f3125.chunk.js.map",
     "index.html": "/Trello-React-Midterm/index.html",
-    "static/css/main.ba5af549.chunk.css.map": "/Trello-React-Midterm/static/css/main.ba5af549.chunk.css.map",
-    "static/js/2.0cf1e220.chunk.js.LICENSE.txt": "/Trello-React-Midterm/static/js/2.0cf1e220.chunk.js.LICENSE.txt"
+    "static/css/main.c4527901.chunk.css.map": "/Trello-React-Midterm/static/css/main.c4527901.chunk.css.map",
+    "static/js/2.87f6c479.chunk.js.LICENSE.txt": "/Trello-React-Midterm/static/js/2.87f6c479.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.48839fe6.js",
-    "static/js/2.0cf1e220.chunk.js",
-    "static/css/main.ba5af549.chunk.css",
-    "static/js/main.501b184d.chunk.js"
+    "static/js/runtime-main.7d838267.js",
+    "static/js/2.87f6c479.chunk.js",
+    "static/css/main.c4527901.chunk.css",
+    "static/js/main.0e91cd75.chunk.js"
   ]
 }
